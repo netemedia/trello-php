@@ -1,5 +1,5 @@
 {
-    "name": "mattzuba/php-trello",
+    "name": "netemedia/php-trello",
     "type": "library",
     "description": "PHP-based Trello API Wrapper",
     "keywords": ["trello", "api"],
