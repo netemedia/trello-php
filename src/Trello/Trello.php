@@ -381,7 +381,17 @@ class Trello
                 break;
             case 'POST':
                 curl_setopt($ch, CURLOPT_POST, true);
-                curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($restData, '', '&'));
+
+                /**
+                 * Fix pour pouvoir envoyer un fichier
+                 */
+                if (isset($restData['file'])) {
+                    curl_setopt($ch, CURLOPT_POSTFIELDS, $restData);
+                }
+                else {
+                    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($restData, '', '&'));
+                }
+
                 $restData = array();
                 break;
             case 'PUT':
